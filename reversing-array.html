@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>reversing-array</title>
+</head>
+<body>
+<script>
+	function reverseArray(array) {
+		let newArray = [];
+		for(let i = array.length-1; i >= 0; i--) {
+			newArray.push(array[i]);
+		}
+		return newArray
+	}
+  //let arrayValue = [1, 2, 3, 4, 5];
+	function reverseArrayInPlace(array) {
+   let newArray = [];
+		for(let i = array.length-1; i >= 0; i--) {
+			console.log(array[i]);
+			newArray.push(array[i]);
+		}
+		return newArray
+	}
+
+// let arrayValue = [1, 2, 3, 4, 5];
+reverseArrayInPlace([1, 2, 3, 4, 5]);
+console.log(arrayValue);
+
+// solution
+
+function reverseArrayInPlace(array) {
+	for (var i = 0; i < Math.floor(array.length / 2); i++) {
+		let old = array[i];
+		array[i] = array[array.length - 1 -i];
+		array[array.length - 1 -i] = old;
+	}
+	return
+}
+</script>
+</body>
+</html>

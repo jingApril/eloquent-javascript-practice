@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>eloquent-javascript</title>
+</head>
+<body>
+<script>
+	function range(x, y, z) {
+		let sequence = [];
+
+		if (z == undefined) z = 1;
+		if( x > y) {
+			for (var i = x; i >= y; i=i+z) {
+			 sequence.push(i);
+		   }
+		} else {
+			for (var i = x; i <= y; i=i+z) {
+			 sequence.push(i);
+		   }
+		}
+		return sequence;
+	}
+  // console.log(range(5, 2, -1));
+  function sum(array){
+		let sum = 0;
+		for (var i = 0; i < array.length; i++) {
+		 sum += array[i];
+		 console.log(sum);
+		}
+		return sum;
+  }
+
+  //
+  // solution
+  function range(start, end, step = start < end ? 1 : -1) {
+  	let array = [];
+  	if(step > 0) {
+			for (let i = start; i <= end; i += step) array.push(i);
+  	} else {
+  		for (let i = start; i >= end; i += step) array.push(i);
+  	}
+  	return array;
+  }
+
+  function sum(array) {
+  	let total  = 0;
+  	for (let value of array) {
+  		total += value;
+  	}
+  	return total;
+  }
+</script>
+</body>
+</html>
