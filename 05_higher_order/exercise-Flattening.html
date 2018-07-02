@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>exercise5-Flattening</title>
+</head>
+<body>
+<script>
+	let arrays = [[1, 2, 3], [4, 5], [6]];
+let array = arrays.reduce((accumulator, current) => {
+    return accumulator.concat(current);
+}, []);
+console.log(array);
+
+// solution
+
+console.log(arrays.reduce((flat, current) => flat.contact(current), []));
+	// → [1, 2, 3, 4, 5, 6]
+</script>
+</body>
+</html>

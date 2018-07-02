@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>reduce</title>
+</head>
+<body>
+	<script>
+const  SCRIPTS = [{
+  name: "Coptic",
+  ranges: [[994, 1008], [11392, 11508], [11513, 11520]],
+  direction: "ltr",
+  year: 200,
+  living: false,
+  link: "https://en.wikipedia.org/wiki/Coptic_alphabet"
+},
+{
+  name: "Adlam",
+  ranges: [[994, 1008], [11392, 13508], [11513, 15520]],
+  direction: "rtl",
+  year: 180,
+  living: true,
+  link: "https://en.wikipedia.org/wiki/Coptic_alphabet"
+},
+{
+  name: "Wang",
+  ranges: [[994, 1008], [10392, 13508], [11013, 15620]],
+  direction: "rtl",
+  year: 210,
+  living: true,
+  link: "https://en.wikipedia.org/wiki/Coptic_alphabet"
+}]
+
+// function characterCount(script) {
+//   return script.ranges.reduce((count, [from, to]) => {
+//     // console.log(count);
+//     return count + (to - from);
+//   }, 0)
+// }
+
+// console.log(SCRIPTS.reduce((a, b) => {
+// 		console.log(characterCount(a));
+// 		console.log(characterCount(b));
+// 	  return characterCount(a) > characterCount(b) ? a : b;
+// }));
+
+// let biggest = null;
+// for (let script of SCRIPTS) {
+// 	console.log(characterCount(script));
+// 	if (biggest == null || characterCount(biggest) < characterCount(script)) {
+// 		biggest = script;
+// 	}
+// }
+// console.log(biggest);
+//
+function average(array) {
+	return array.reduce((a,b) => a + b) / array.length;
+}
+console.log(SCRIPTS.filter(s => s.living).map(s => s.year));
+console.log(Math.round(average(SCRIPTS.filter(s => s.living).map(s => s.year))));
+console.log(SCRIPTS.filter(s => !s.living).map(s => s.year));
+console.log(Math.round(average(SCRIPTS.filter(s => !s.living).map(s => s.year))));
+
+let total = 0; count =0;
+for (let script of SCRIPTS) {
+	if (script.living) {
+		total += script.year;
+		count += 1;
+	}
+}
+console.log(Math.round(total / count));
+
+// strings amd character codes
+function characterScript(code) {
+	for (let script of SCRIPTS) {
+		if (script.rangs.some(([from, to]) => {
+			return code >= from && code < to;
+		})) {
+			return script;
+		}
+	}
+	return null;
+}
+
+console.log(characterScript(121));
+
+let horseShoe = "🐴👟";
+console.log(horseShoe.length);
+
+let roseDragon = "🌹🐉";
+for (let char of roseDragon) {
+	console.log(char);
+	console.log(codePointAt(0))
+}
+
+function countBy(items, groupName) {
+	let counts = [];
+	for (let item of items) {
+		let name = groupName(item);
+		let known = counts.findIndex(c => c.name == name);
+		if (known == -1) {
+			counts.push({name, count: 1});
+		} else {
+			counts[known].count++;
+		}
+	}
+	return counts;
+}
+
+
+	</script>
+</body>
+</html>
