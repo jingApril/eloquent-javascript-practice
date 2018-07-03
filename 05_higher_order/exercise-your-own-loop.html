@@ -10,20 +10,22 @@
 </head>
 <body>
 	<script>
-
-function logic(n, action) {
-      return  action(n);
-}
-
-
-
-	function loop (n, functionX, functionY, functionZ) {
-		for (var i = 1; i < Things.length; i++) {
-
-		}
+	function loop (n, fnx, fny, fnz) {
+		 while (fnx(n)) {
+	  	fnz(n);
+	    n = fny(n);
+	  }
 	}
 
 	loop(3, n => n > 0, n => n - 1, console.log);
+
+	// solution
+
+	function loop(start, test, update, body) {
+		for (let value = start; test(value); value = update(value)) {
+			body(value);
+		}
+	}
 	</script>
 </body>
 </html>

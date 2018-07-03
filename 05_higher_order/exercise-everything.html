@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Everything</title>
+</head>
+<body>
+	<script>
+		function every(array, test) {
+		  // Your code here.
+		  if(array.length == 0) return true;
+		  for (var i = 0; i < array.length; i++) {
+		     if(!test(array[i])) {
+		     	return false;
+		     }
+		  }
+		  return true;
+		}
+
+		function every(array, test) {
+
+		}
+
+		console.log(every([1, 3, 5], n => n < 10));
+		// → true
+		console.log(every([2, 4, 16], n => n < 10));
+		// → false
+		console.log(every([], n => n < 10));
+		// → true
+		//
+
+		// solution
+		function every(array, predicate) {
+			for (let element of array) {
+				if (!predicate(element)) return false;
+			}
+			return true;
+		}
+
+		function every2(array, predicate) {
+			return !array.some(element => !predicate(element));
+		}
+
+	</script>
+
+</body>
+</html>
